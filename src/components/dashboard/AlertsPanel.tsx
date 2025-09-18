@@ -1,4 +1,3 @@
-// components/dashboard/AlertsPanel.tsx
 'use client';
 import { Train, calculateReadinessScore } from '@/lib/logic';
 import { motion } from 'framer-motion';

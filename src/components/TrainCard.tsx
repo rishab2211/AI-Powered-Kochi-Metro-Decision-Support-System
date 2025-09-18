@@ -1,4 +1,3 @@
-// components/TrainCard.tsx
 'use client';
 
 import { Train, calculateReadinessScore, getStatusColor } from '../lib/logic';

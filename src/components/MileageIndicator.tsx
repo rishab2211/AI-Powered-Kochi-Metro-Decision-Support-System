@@ -1,4 +1,3 @@
-// components/MileageIndicator.tsx
 'use client';
 
 interface MileageIndicatorProps {

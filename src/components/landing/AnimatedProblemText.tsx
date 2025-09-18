@@ -1,4 +1,3 @@
-// components/landing/AnimatedProblemText.tsx
 'use client';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -24,7 +23,7 @@ export default function AnimatedProblemText() {
   }, []);
 
   return (
-    <div className="text-xl md:text-2xl font-semibold text-yellow-300 h-8 mt-4">
+    <div className="text-xl md:text-2xl font-semibold text-blue-400 h-8 mt-4">
       <AnimatePresence mode="wait">
         <motion.div
           key={problems[index]}

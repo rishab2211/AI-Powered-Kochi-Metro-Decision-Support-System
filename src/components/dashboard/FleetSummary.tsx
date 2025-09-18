@@ -1,4 +1,3 @@
-// components/dashboard/FleetSummary.tsx
 'use client';
 import { Train } from '@/lib/logic';
 import { calculateReadinessScore } from '@/lib/logic';

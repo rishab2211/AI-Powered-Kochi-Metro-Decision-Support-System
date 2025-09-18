@@ -1,4 +1,3 @@
-// components/dashboard/PriorityFocus.tsx
 import { Train, calculateReadinessScore } from '@/lib/logic';
 import TrainCard from '../TrainCard'; // We will use our revamped TrainCard here
 

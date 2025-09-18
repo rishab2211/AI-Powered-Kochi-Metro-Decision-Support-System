@@ -1,4 +1,3 @@
-// components/dashboard/StablingYardView.tsx
 'use client';
 import { Train, calculateReadinessScore, getStatusColor } from '@/lib/logic';
 import { motion } from 'framer-motion';

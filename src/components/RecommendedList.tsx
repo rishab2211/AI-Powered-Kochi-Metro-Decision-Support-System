@@ -1,4 +1,3 @@
-// components/RecommendedList.tsx
 'use client';
 import { Train, calculateReadinessScore } from '../lib/logic';
 

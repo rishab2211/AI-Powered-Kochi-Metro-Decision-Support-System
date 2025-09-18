@@ -1,64 +1,43 @@
-// components/landing/ProblemSection.tsx
-import { AlertTriangle, Clock, FileSpreadsheet, MessageSquare } from 'lucide-react';
+'use client';
+import { FileSpreadsheet, MessageSquare, AlertTriangle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const problems = [
-  {
-    icon: <FileSpreadsheet size={40} className="text-blue-400" />,
-    title: "Siloed Data",
-    description: "Critical information is scattered across spreadsheets, logbooks, and WhatsApp messages."
-  },
-  {
-    icon: <Clock size={40} className="text-blue-400" />,
-    title: "Time-Compressed Decisions",
-    description: "Supervisors have a narrow 2-hour window to make complex, high-stakes induction choices."
-  },
-  {
-    icon: <AlertTriangle size={40} className="text-blue-400" />,
-    title: "Error-Prone Process",
-    description: "Manual reconciliation is opaque, non-repeatable, and risks service disruptions and financial penalties."
-  }
-];
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
 
 export default function ProblemSection() {
   return (
-    <section className="py-20 bg-gray-900 text-center">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-4">The 2-Hour Window to Untangle Chaos</h2>
-        <p className="text-gray-400 max-w-3xl mx-auto mb-16">
-          Between 21:00 and 23:00 every night, supervisors face a high-stakes data puzzle. A single mistake can impact thousands of commuters.
+    <section className="py-24 bg-slate-900/50">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">The 2-Hour Window to Untangle Chaos</h2>
+        <p className="text-slate-300 max-w-3xl mx-auto mb-16">
+          Between 21:00 and 23:00 every night, supervisors face a high-stakes data puzzle.
         </p>
-        <div className="grid md:grid-cols-3 gap-8 items-start">
-          {/* Step 1: The Data Maze */}
-          <div className="flex flex-col items-center">
-            <div className="bg-blue-500/10 text-blue-400 p-4 rounded-full ring-1 ring-blue-500/30 mb-4">
-              <FileSpreadsheet size={32} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">The Data Maze</h3>
-            <p className="text-gray-400">
-              Critical data is scattered. Fitness certificates are in logbooks, job cards are in Maximo exports, and branding priorities arrive via WhatsApp.
-            </p>
-          </div>
-          {/* Step 2: The Human Bottleneck */}
-          <div className="flex flex-col items-center">
-            <div className="bg-yellow-500/10 text-yellow-400 p-4 rounded-full ring-1 ring-yellow-500/30 mb-4">
-              <MessageSquare size={32} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">The Human Bottleneck</h3>
-            <p className="text-gray-400">
-              Supervisors must manually reconcile these conflicting data points using experience and ad-hoc filters, an opaque and unrepeatable process.
-            </p>
-          </div>
-          {/* Step 3: The High Cost of Errors */}
-          <div className="flex flex-col items-center">
-            <div className="bg-red-500/10 text-red-400 p-4 rounded-full ring-1 ring-red-500/30 mb-4">
-              <AlertTriangle size={32} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">The High Cost of Errors</h3>
-            <p className="text-gray-400">
-              A missed certificate can force a rake withdrawal, eroding the 99.5% punctuality KPI and risking revenue penalties from unmet advertiser SLAs.
-            </p>
-          </div>
-        </div>
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ staggerChildren: 0.2 }}
+        >
+          <motion.div variants={cardVariants} className="bg-slate-800/50 p-8 rounded-2xl ring-1 ring-white/10">
+            <div className="flex justify-center mb-4"><FileSpreadsheet size={32} className="text-blue-400" /></div>
+            <h3 className="text-xl font-bold mb-2 text-white">The Data Maze</h3>
+            <p className="text-slate-400">Critical data is scattered across logbooks, Maximo exports, and WhatsApp messages.</p>
+          </motion.div>
+          <motion.div variants={cardVariants} className="bg-slate-800/50 p-8 rounded-2xl ring-1 ring-white/10">
+            <div className="flex justify-center mb-4"><MessageSquare size={32} className="text-blue-400" /></div>
+            <h3 className="text-xl font-bold mb-2 text-white">The Human Bottleneck</h3>
+            <p className="text-slate-400">An opaque, manual reconciliation process relies on ad-hoc filters and gut feelings.</p>
+          </motion.div>
+          <motion.div variants={cardVariants} className="bg-slate-800/50 p-8 rounded-2xl ring-1 ring-white/10">
+            <div className="flex justify-center mb-4"><AlertTriangle size={32} className="text-blue-400" /></div>
+            <h3 className="text-xl font-bold mb-2 text-white">The High Cost of Errors</h3>
+            <p className="text-slate-400">Mistakes risk service disruptions, eroding the 99.5% punctuality KPI.</p>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
